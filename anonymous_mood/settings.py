@@ -125,8 +125,15 @@ REST_FRAMEWORK = {
     "NON_FIELD_ERRORS_KEY": "params_error",
 }
 
+# 静态文件收集
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+# 静态文件路径
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+# 静态文件收集(收集完后注释)
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
 
