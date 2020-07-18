@@ -8,7 +8,6 @@ from . import managers
 
 
 class CreateMixin(models.Model):
-    creator = models.CharField(verbose_name=_("创建人"), max_length=LEN_NORMAL)
     create_at = models.DateTimeField(verbose_name=_("创建时间"), auto_now_add=True)
 
     class Meta:

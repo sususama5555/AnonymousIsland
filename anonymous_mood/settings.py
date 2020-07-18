@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = '&q+)6ew$9%+t!^t$^u_r3r2b&df7n6t%!jh3#h8#*wa&jtrrf%'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -71,7 +69,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'anonymous_mood.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -104,7 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -118,12 +114,21 @@ USE_L10N = True
 
 USE_TZ = True
 
+# ==============================================================================
+# REST FRAMEWORK SETTING
+# ==============================================================================
+REST_FRAMEWORK = {
+    "PAGE_SIZE": 5,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    "TEST_REQUEST_DEFAULT_FORMAT": "json",
+    "DATETIME_FORMAT": "%Y-%m-%d %H:%M:%S",
+    "NON_FIELD_ERRORS_KEY": "params_error",
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'user_image')
-
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'  # 用于指定url路径
+MEDIA_ROOT = os.path.join(BASE_DIR, "mood_image")  # 用于指定上传文件的存储路径

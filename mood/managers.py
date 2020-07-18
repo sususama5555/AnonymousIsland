@@ -21,3 +21,15 @@ class Manager(models.Manager):
 
 class MoodManager(Manager):
     pass
+
+
+class UserManager(Manager):
+    pass
+
+
+class CommentManager(Manager):
+    pass
+
+
+class LikeManager(Manager):
+    pass
