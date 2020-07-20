@@ -37,7 +37,7 @@ class MoodViewSet(viewsets.ModelViewSet):
 
 class MyMoodViewSet(viewsets.ModelViewSet):
     queryset = Mood.objects.filter()
-    serializer_class = MoodSerializer
+    serializer_class = MoodListSerializer
 
     def get_queryset(self):
         return self.queryset.filter(user__openid=self.request.GET.get("openid"))

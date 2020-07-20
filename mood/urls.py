@@ -12,9 +12,9 @@ from .views import MoodViewSet, MyMoodViewSet, CommentViewSet, UserViewSet
 
 routers = DefaultRouter(trailing_slash=True)
 
-routers.register(r"moods", MoodViewSet)
-# routers.register(r"my_moods", MyMoodViewSet)
-routers.register(r"comments", CommentViewSet)
-routers.register(r"user", UserViewSet)
+routers.register(r"moods", MoodViewSet, basename="moods")
+routers.register(r"comments", CommentViewSet, basename="comments")
+routers.register(r"users", UserViewSet, basename="users")
+routers.register(r"my_moods", MyMoodViewSet, basename="my_moods")
 
 urlpatterns = routers.urls
