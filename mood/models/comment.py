@@ -24,7 +24,7 @@ class Comment(CreateMixin, UpdateMixin, DeleteMixin):
         ordering = ('create_at',)
         app_label = 'mood'
         verbose_name = _("评论")
-        verbose_name_plural = _("心情")
+        verbose_name_plural = _("评论")
 
     def __str__(self):
         return str(self.id)

@@ -16,7 +16,13 @@ from mood.constants import *
 from mood.managers import UserManager
 
 
-class User(models.Model):
+class User(CreateMixin, UpdateMixin, DeleteMixin):
     openid = models.IntegerField(verbose_name=_("WX唯一ID"), default=EMPTY_INT, primary_key=True)
     username = models.CharField(verbose_name=_("用户名"), max_length=LEN_SHORT)
     fakename = models.CharField(verbose_name=_("用户匿名"), max_length=LEN_SHORT)
+
+    class Meta:
+        ordering = ('create_at',)
+        app_label = 'mood'
+        verbose_name = _("用户")
+        verbose_name_plural = _("用户")
