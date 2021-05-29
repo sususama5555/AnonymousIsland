@@ -15,5 +15,5 @@ python-json-logger==0.1.7
 whitenoise==3.3.0
 six==1.11.0
 Pillow==7.2.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 django-filter==2.4.0
