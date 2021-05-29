@@ -22,7 +22,7 @@ class User(CreateMixin, UpdateMixin, DeleteMixin):
     fakename = models.CharField(verbose_name=_("用户匿名"), max_length=LEN_SHORT)
 
     class Meta:
-        ordering = ('create_at',)
-        app_label = 'mood'
+        ordering = ("-create_at",)
+        app_label = "mood"
         verbose_name = _("用户")
         verbose_name_plural = _("用户")

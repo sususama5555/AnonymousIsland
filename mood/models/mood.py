@@ -4,7 +4,7 @@ import datetime
 from django.db import models
 from django.utils.translation import ugettext as _
 
-from anonymous_mood.settings import MEDIA_ROOT
+from config.settings import MEDIA_ROOT
 from mood.basic import CreateMixin, UpdateMixin, DeleteMixin
 from mood.constants import *
 
@@ -32,8 +32,8 @@ class Mood(CreateMixin, UpdateMixin, DeleteMixin):
     objects = MoodManager()
 
     class Meta:
-        ordering = ('create_at',)
-        app_label = 'mood'
+        ordering = ("-create_at",)
+        app_label = "mood"
         verbose_name = _("心情")
         verbose_name_plural = _("心情")
 

@@ -21,8 +21,8 @@ class Comment(CreateMixin, UpdateMixin, DeleteMixin):
     objects = CommentManager()
 
     class Meta:
-        ordering = ('create_at',)
-        app_label = 'mood'
+        ordering = ("-create_at",)
+        app_label = "mood"
         verbose_name = _("评论")
         verbose_name_plural = _("评论")
 
