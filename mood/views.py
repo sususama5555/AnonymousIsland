@@ -12,6 +12,8 @@ class MoodViewSet(viewsets.ModelViewSet):
     queryset = Mood.objects.filter(is_deleted=False)
     serializer_class = MoodSerializer
 
+    ordering_fields = "__all__"
+
     def list(self, request, *args, **kwargs):
         """心情列表"""
 
@@ -38,6 +40,8 @@ class MoodViewSet(viewsets.ModelViewSet):
 class MyMoodViewSet(viewsets.ModelViewSet):
     queryset = Mood.objects.filter()
     serializer_class = MoodListSerializer
+
+    ordering_fields = "__all__"
 
     def get_queryset(self):
         return self.queryset.filter(user__openid=self.request.GET.get("openid"))
