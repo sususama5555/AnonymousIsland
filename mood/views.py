@@ -36,6 +36,9 @@ class MoodViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
 
+    def create(self, request, *args, **kwargs):
+        return super(MoodViewSet, self).create(request, *args, **kwargs)
+
 
 class MyMoodViewSet(viewsets.ModelViewSet):
     queryset = Mood.objects.filter()
@@ -61,5 +64,12 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+    def create(self, request, *args, **kwargs):
+        try:
+            instance = self.queryset.get(openid=request.data.get("openid"))
+            serializer = self.get_serializer(instance)
+            return Response(serializer.data)
+        except User.DoesNotExist:
+            return super(UserViewSet, self).create(request, *args, **kwargs)
 
 

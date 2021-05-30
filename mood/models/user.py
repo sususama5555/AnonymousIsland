@@ -9,6 +9,7 @@
 from django.db import models
 from django.utils.translation import ugettext as _
 
+from common.utils import gen_id_by_uuid
 from mood.basic import CreateMixin, UpdateMixin, DeleteMixin
 from mood.constants import *
 
@@ -17,7 +18,7 @@ from mood.managers import UserManager
 
 
 class User(CreateMixin, UpdateMixin, DeleteMixin):
-    openid = models.IntegerField(verbose_name=_("WX唯一ID"), default=EMPTY_INT, primary_key=True)
+    openid = models.CharField(verbose_name=_("WX唯一ID"), max_length=80, default=gen_id_by_uuid, primary_key=True)
     username = models.CharField(verbose_name=_("用户名"), max_length=LEN_SHORT)
     fakename = models.CharField(verbose_name=_("用户匿名"), max_length=LEN_SHORT)
 
